@@ -75,7 +75,7 @@ defmodule Raditz.PoolEntity do
           @spec script(term) :: {String.t(), term} | nil
           def script(script)
         end,
-        fn acc, {script, v} ->
+        fn {script, v}, acc ->
           quote do
             unquote(acc)
             def script(unquote(script)), do: unquote(v)
